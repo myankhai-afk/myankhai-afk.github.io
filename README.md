@@ -1,1 +1,1 @@
-# myankhai-afk.github.i
+# myankhai-afk.github.io
