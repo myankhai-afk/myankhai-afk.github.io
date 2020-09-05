@@ -9,7 +9,7 @@
     <body>
         <div class="header">
             <ul>
-                <li class="col-lg-1"><a href="Index.html">About me</a></li>
+                <li class="col-lg-1"><a href="index.html">About me</a></li>
                 <li class="col-lg-1"><a href="8.2.html">Stopwatch</a></li>
                 <li class="col-lg-1"><a href="addProduct.html">TODO App</a></li>
                 <li class="col-lg-1"><a href="changePic.html">Change Picture</a></li>
@@ -32,10 +32,11 @@
             var inp1 = document.querySelector("#input1")
             var count = 1
             function addProduct(){
+                var divP = document.createElement("p")
                 var divPro = document.createElement("div")
                 var divBut = document.createElement("button")
-                document.getElementById("productCont").append(divPro)
-                document.getElementById("productCont").append(divBut)
+                document.getElementById("productCont").append(divP)
+                document.getElementById
                 
                 if(inp1.value==""){
                     alert("hooson bn")
