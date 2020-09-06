@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GIF searcher</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+    <head>
+    <body>
+        <div class="header">
+            <ul>
+                <a href="AboutMe.html"><li class="col-lg-1">About me</li></a>
+                <a href="8.2.html"><li class="col-lg-1">Stopwatch</li></a>
+                <a href="addProduct.html"><li class="col-lg-1">TODO App</li></a>
+                <a href="changePic.html"><li class="col-lg-1">Change Picture</li></a>
+                <a href="changeColor.html"><li class="col-lg-1">Change Color</li></a>
+                <a href="timer.html"><li class="col-lg-1">Timer</li></a>
+                <a href="8.1.html"><li class="col-lg-1">Counter</li></a>
+                <a href="7.26.html"><li class="col-lg-1">ClassList</li></a>
+                <a href="imageSlider.html"><li class="col-lg-1">Image Slider</li></a>
+                <a href="gif.html"><li class="col-lg-1">GIF searcher</li></a>
+                <a href="calculator.html"><li class="col-lg-1">Calculator</li></a>
+            </ul>
+        </div>
+        <div class="Container">
+            <input id="inp1">
+            <button onclick="getData()">GO</button>
+            <div id="div1"></div>
+        </div>
+        <script>
+            var input1 = document.querySelector("#inp1")
+            var div1 = document.querySelector("#div1")
+            // var myArray = [URL="https://www.google.com/search?q=ghost&sxsrf=ALeKk00Lv5acQLoPLjvg9s5fIzCIzKnAqA:1597554089077&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj7kvTf-J7rAhWsIqYKHVWiCekQ_AUoAXoECB0QAw&biw=705&bih=710#imgrc=UwwrV6x1e5WuuM"]
+            // [myArray[0]]
+            let getData = async () => {
+                div1.innerHTML=""
+                var result = await fetch("https://api.giphy.com/v1/gifs/search?api_key=MnknX4flZN4OuANG6UTpkmrabj86f2Re&q="+input1.value+"&limit=25&offset=0&rating=g&lang=en")
+                let apiObj = await result.json()
+                
+                
+                for(let x=0; x < apiObj.data.length; x++){
+                    let myImg = document.createElement("img")
+                    myImg.src = apiObj.data[x].images.downsized.url
+                    div1.append(myImg)
+                }
+            } 
+                // for(let i=0 ; i < table.length ; i++){
+                //     rows[i]= table[i].split(",")
+                // }
+            
+            // myFunc()
+            // fetch("words.csv").then(function(responce){
+            //     return responce.json()
+            // }).then(function(data){
+            //     console.log(data)
+            // })
+        </script>
+    </body>
+</html>

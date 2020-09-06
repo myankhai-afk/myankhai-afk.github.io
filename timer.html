@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timer</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+    <head>
+    <body>
+        <div class="header">
+            <ul>
+                <a href="AboutMe.html"><li class="col-lg-1">About me</li></a>
+                <a href="8.2.html"><li class="col-lg-1">Stopwatch</li></a>
+                <a href="addProduct.html"><li class="col-lg-1">TODO App</li></a>
+                <a href="changePic.html"><li class="col-lg-1">Change Picture</li></a>
+                <a href="changeColor.html"><li class="col-lg-1">Change Color</li></a>
+                <a href="timer.html"><li class="col-lg-1">Timer</li></a>
+                <a href="8.1.html"><li class="col-lg-1">Counter</li></a>
+                <a href="7.26.html"><li class="col-lg-1">ClassList</li></a>
+                <a href="imageSlider.html"><li class="col-lg-1">Image Slider</li></a>
+                <a href="gif.html"><li class="col-lg-1">GIF searcher</li></a>
+                <a href="calculator.html"><li class="col-lg-1">Calculator</li></a>
+            </ul>
+        </div>
+        <div class="Container">
+            <input id="input1" type="number">
+            <button onclick="myTime()">Time</button>
+            <div><span id="hours">00</span>:<span id="minute">00</span>:<span id="second">00</span></div>
+        </div>
+        <script>
+            var inp1=document.querySelector("#input1")
+            var minute1=document.querySelector("#minute")
+            var second1 = document.querySelector("#second")
+            var hours1 = document.querySelector("#hours")
+            var running = true
+            // function myTime(){
+            //     //if(running==true){
+            //         if(inp1.value>=3600){
+            //             hours1.innerHTML = Math.floor(inp1.value/3600)
+            //             minute1.innerHTML = inp1.value%3600
+            //             inp1.value=""
+            //             myInterval = setInterval(secDown,1000)
+            //         }else if(inp1.value>=60){
+            //             minute1.innerHTML = Math.floor(inp1.value/60)
+            //             second1.innerHTML = inp1.value%60
+            //             inp1.value=""
+            //             myInterval = setInterval(secDown,1000)
+                        
+            //         }else if(inp1.value>0){
+            //             second1.innerHTML=inp1.value
+            //             inp1.value=""
+            //             myInterval = setInterval(secDown,1000)
+            //         }else{
+            //             alert("utgaa zuv oruul")
+            //         }
+            //         //running=false
+            //     //}
+                
+            // }
+            // function secDown(){
+            //     second1.innerHTML--
+            //     if(minute1.innerHTML==-1){
+            //         hours1.innerHTML--
+            //         minute1.innerHTML=59
+            //     }
+            //     if(second1.innerHTML==0){
+            //         minute1.innerHTML--
+            //         second1.innerHTML=59
+            //     }else if(second1.innerHTML==0&&minute1.innerHTML==0){
+            //         clearInterval(myInterval)
+            //         running=true
+            //     }
+                
+            // }
+
+            function secDown(){
+                second1.innerHTML--
+                if(second1.innerHTML==-1){
+                    minute1.innerHTML--
+                    second1.innerHTML=59
+                    if(minute1.innerHTML==-1){
+                        hours1.innerHTML--
+                        minute1.innerHTML=59
+                    }
+                }
+                // if(second1.innerHTML==0&&hours1.innerHTML>0){
+                //     hours1.innerHTML--
+                //     minute1.innerHTML=59
+                //     second1.innerHTML=59
+                // }
+            }
+
+            function myTime(){
+                if(running==true){
+                    if(inp1.value>=3600){
+                        hours1.innerHTML = Math.floor(inp1.value/3600)
+                        minute1.innerHTML = Math.floor(inp1.value/60)%60
+                        second1.innerHTML = (inp1.value%60)%60
+                        inp1.value=""
+                        setInterval(secDown,1000)
+                    }
+                    running=false
+                }
+            }
+        </script>
+    </body>
+</html>

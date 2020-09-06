@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            button {
+                border: 0;
+                background: rgba(42,50,113, .28);
+                color: #6cacc5;
+                cursor: pointer;
+                font: inherit;
+                margin: 0.25em;
+                width: 2em;
+                height: 2em;
+                transition: all 0.5s;
+            }
+            button::after{
+                animation: zoom 1s;
+                animation-iteration-count: 1;
+                animation-fill-mode: both;
+                content: attr(data-num);
+                cursor: default;
+                font-size: 100px;
+                position: absolute;
+                    top: 1.5em;
+                    left: 50%;
+                text-align: center;
+                margin-left: -24px;
+                opacity: 0;
+                width: 48px;   
+            }
+            .clear{
+                width: 165px;
+            }
+            .calculator{
+                padding: 0 20%;
+            }
+        </style>
+    <head>
+    <body>
+        <div class="header">
+            <ul>
+                <a href="AboutMe.html"><li class="col-lg-1">About me</li></a>
+                <a href="8.2.html"><li class="col-lg-1">Stopwatch</li></a>
+                <a href="addProduct.html"><li class="col-lg-1">TODO App</li></a>
+                <a href="changePic.html"><li class="col-lg-1">Change Picture</li></a>
+                <a href="changeColor.html"><li class="col-lg-1">Change Color</li></a>
+                <a href="timer.html"><li class="col-lg-1">Timer</li></a>
+                <a href="8.1.html"><li class="col-lg-1">Counter</li></a>
+                <a href="7.26.html"><li class="col-lg-1">ClassList</li></a>
+                <a href="imageSlider.html"><li class="col-lg-1">Image Slider</li></a>
+                <a href="gif.html"><li class="col-lg-1">GIF searcher</li></a>
+                <a href="calculator.html"><li class="col-lg-1">Calculator</li></a>
+            </ul>
+        </div>
+        <div id="calculator" class="calculator">
+            
+
+            <div id="viewer" class="viewer">0</div>
+
+            <button id="clear" class="clear" onclick="clear()">C</button><br>
+
+            <button class="num" data-num="7" onclick="tap2()">7</button>
+            <button class="num" data-num="8" onclick="tap2()">8</button>
+            <button class="num" data-num="9" onclick="tap2()">9</button>
+            <button data-ops="plus" class="ops" onclick="plus()">+</button><br>
+
+            <button class="num" data-num="4" onclick="tap2()">4</button>
+            <button class="num" data-num="5" onclick="tap2()">5</button>
+            <button class="num" data-num="6" onclick="tap2()">6</button>
+            <button data-ops="minus" class="ops" onclick="minus()">-</button><br>
+
+            <button class="num" data-num="1" onclick="tap2()">1</button>
+            <button class="num" data-num="2" onclick="tap2()">2</button>
+            <button class="num" data-num="3" onclick="tap2()">3</button>
+            <button data-ops="times" class="ops" onclick="urjih()">*</button><br>
+
+            <button class="num" data-num="0" onclick="tap2()">0</button>
+            <button class="num" data-num="." onclick="tap2()">.</button>
+            <button id="equals" class="equals" data-result="" onclick="tentsuu()">=</button>
+            <button data-ops="divided by" class="ops" onclick="huvaah()">/</button>
+        </div>
+        <script>
+            (function() {
+            var el = function(element) {
+                if (element.charAt(0) === "#") {
+                return document.querySelector(element);
+                }
+
+                return document.querySelectorAll(element);
+            };
+
+            var viewer = el("#viewer")
+            var equals = el("#equals")
+            var nums = el(".num")
+            var ops = el(".ops")
+            var theNum = ""
+            var oldNum = ""
+            var resultNum
+            var operator
+
+            var setNum = function() {
+                if (resultNum) { 
+                theNum = this.getAttribute("data-num");
+                resultNum = "";
+                } else { 
+                theNum += this.getAttribute("data-num");
+                }
+
+                viewer.innerHTML = theNum;
+
+            };
+
+            // When: Operator is clicked. Pass number to oldNum and save operator
+            var moveNum = function() {
+                oldNum = theNum;
+                theNum = "";
+                operator = this.getAttribute("data-ops");
+
+                equals.setAttribute("data-result", ""); // Reset result in attr
+            };
+
+            // When: Equals is clicked. Calculate result
+            var displayNum = function() {
+
+                // Convert string input to numbers
+                oldNum = parseFloat(oldNum);
+                theNum = parseFloat(theNum);
+
+                // Perform operation
+                switch (operator) {
+                case "plus":
+                    resultNum = oldNum + theNum;
+                    break;
+
+                case "minus":
+                    resultNum = oldNum - theNum;
+                    break;
+
+                case "times":
+                    resultNum = oldNum * theNum;
+                    break;
+
+                case "divided by":
+                    resultNum = oldNum / theNum;
+                    break;
+
+                    // If equal is pressed without an operator, keep number and continue
+                default:
+                    resultNum = theNum;
+                }
+
+                // If NaN or Infinity returned
+                if (!isFinite(resultNum)) {
+                if (isNaN(resultNum)) { // If result is not a number; set off by, eg, double-clicking operators
+                    resultNum = "You broke it!";
+                } else { // If result is infinity, set off by dividing by zero
+                    resultNum = "Look at what you've done";
+                    el('#calculator').classList.add("broken"); // Break calculator
+                    el('#reset').classList.add("show"); // And show reset button
+                }
+                }
+
+                // Display result, finally!
+                viewer.innerHTML = resultNum;
+                equals.setAttribute("data-result", resultNum);
+
+                // Now reset oldNum & keep result
+                oldNum = 0;
+                theNum = resultNum;
+
+            };
+
+            // When: Clear button is pressed. Clear everything
+            var clearAll = function() {
+                oldNum = "";
+                theNum = "";
+                viewer.innerHTML = "0";
+                equals.setAttribute("data-result", resultNum);
+            };
+
+            /* The click events */
+
+            // Add click event to numbers
+            for (var i = 0, l = nums.length; i < l; i++) {
+                nums[i].onclick = setNum;
+            }
+
+            // Add click event to operators
+            for (var i = 0, l = ops.length; i < l; i++) {
+                ops[i].onclick = moveNum;
+            }
+
+            // Add click event to equal sign
+            equals.onclick = displayNum;
+
+            // Add click event to clear button
+            el("#clear").onclick = clearAll;
+
+            // Add click event to reset button
+            el("#reset").onclick = function() {
+                window.location = window.location;
+            };
+
+            }());
+        </script>
+    </body>
+</html>

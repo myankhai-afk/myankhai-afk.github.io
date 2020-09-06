@@ -8,55 +8,63 @@
     <head>
     <body>
         <style>
-            img{
+            .image{
                 height: 600px;
-                transition: 6s;
+                display: none;
+                position: relative;
+            }
+            .div1{
+                display: none;
             }
         </style>
         <div class="header">
             <ul>
-                <li class="col-lg-1"><a href="AboutMe.html">About me</a></li>
-                <li class="col-lg-1"><a href="8.2.html">Stopwatch</a></li>
-                <li class="col-lg-1"><a href="addProduct.html">TODO App</a></li>
-                <li class="col-lg-1"><a href="changePic.html">Change Picture</a></li>
-                <li class="col-lg-1"><a href="changeColor.html">Change Color</a></li>
-                <li class="col-lg-1"><a href="timer.html">Timer</a></li>
-                <li class="col-lg-1"><a href="8.1.html">Counter</a></li>
-                <li class="col-lg-1"><a href="7.26.html">ClassList</a></li>
-                <li class="col-lg-1"><a href="imageSlider.html">Image Slider</a></li>
-                <li class="col-lg-1"><a href="gif.html">GIF searcher</a></li>
+                <a href="AboutMe.html"><li class="col-lg-1">About me</li></a>
+                <a href="8.2.html"><li class="col-lg-1">Stopwatch</li></a>
+                <a href="addProduct.html"><li class="col-lg-1">TODO App</li></a>
+                <a href="changePic.html"><li class="col-lg-1">Change Picture</li></a>
+                <a href="changeColor.html"><li class="col-lg-1">Change Color</li></a>
+                <a href="timer.html"><li class="col-lg-1">Timer</li></a>
+                <a href="8.1.html"><li class="col-lg-1">Counter</li></a>
+                <a href="7.26.html"><li class="col-lg-1">ClassList</li></a>
+                <a href="imageSlider.html"><li class="col-lg-1">Image Slider</li></a>
+                <a href="gif.html"><li class="col-lg-1">GIF searcher</li></a>
+                <a href="calculator.html"><li class="col-lg-1">Calculator</li></a>
             </ul>
         </div>
         <div id="div1">
-            <img id="img1" src="images/JL.jpg">
+            <img id="img1" class="imag" src="images/JL.jpg">
+            <img id="img2" class="image" src="images/OUaTiH.jpg">
+            <img id="img3" class="image" src="images/ww84.jpg">
+            <img id="img4" class="image" src="images/BW.jpg">
         </div>
         <div class="Container">
             <button id="But1" onclick="prevBut()" disabled>Prev</button>
             <button id="But2" onclick="nextBut()">Next</button>
         </div>
         <script>
-            var myArray = ["images/JL.jpg","images/OUaTiH.jpg","images/ww84.jpg","images/BW.jpg"]
-            var myDiv = document.querySelector("#div1")
-            var myImage = document.querySelector("#img1")
-            var myBut1 = document.querySelector("#But1")
-            var myBut2 = document.querySelector("#But2")
-            var count = 0
-            function nextBut(){
-                count++
-                myImage.src = myArray[count]
-                if(count==myArray.length-1){
-                    myBut2.disabled = true
-                }
-                myBut1.disabled=false
-            }
-            function prevBut(){
-                count--
-                myImage.src = myArray[count]
-                myBut2.disabled = false
-                if(count==0){
-                    myBut1.disabled=true
-                }
-            }
+            //var myArray = ["images/JL.jpg","images/OUaTiH.jpg","images/ww84.jpg","images/BW.jpg"]
+            // var myDiv = document.querySelector("#div1")
+            // var myImage = document.querySelector("#img1")
+            // var myBut1 = document.querySelector("#But1")
+            // var myBut2 = document.querySelector("#But2")
+            // var count = 0
+            // function nextBut(){
+            //     count++
+            //     myImage.src = myArray[count]
+            //     if(count==myArray.length-1){
+            //         myBut2.disabled = true
+            //     }
+            //     myBut1.disabled=false
+            // }
+            // function prevBut(){
+            //     count--
+            //     myImage.src = myArray[count]
+            //     myBut2.disabled = false
+            //     if(count==0){
+            //         myBut1.disabled=true
+            //     }
+            // }
         </script>
     </body>
 </html>
