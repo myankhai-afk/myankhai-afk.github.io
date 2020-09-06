@@ -11,8 +11,9 @@ button{
 }
 li{
     
+    background-color: black;
     float: left;
-    background-color:aqua;
+    /* background-color:aqua; */
     height:50px;
     width: 150px;
     border-radius: 10px;
@@ -20,7 +21,7 @@ li{
 }
 li:hover{
     cursor: pointer;
-    background-color: yellow;
+    background-color: white;
 }
 input{
     height: 44px;
@@ -38,4 +39,10 @@ input{
 }
 .text1{
     background: darkgray;
+}
+a{
+    color: white;
+}
+a:hover{
+    color: black;
 }
