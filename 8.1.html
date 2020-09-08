@@ -29,12 +29,9 @@
             <button onclick="myFunctres()">Reset</button>
             <div id="div1">0</div>
         </div>
-        <h2></h2>
         
         <script>
-            var x = 0
-            var y = 0
-            var inp1 = document.querySelector("input")
+            var inp1 = document.querySelector("#input")
             var div = document.querySelector("#div1")
             function myFunctmin(){
                 if(inp1.value==""){
@@ -57,7 +54,7 @@
                 }
             }
             function myFunctres(){
-                document.getElementById("div1").innerHTML=0
+                div.innerHTML=0
                 inp1.value=""
             }
         </script>

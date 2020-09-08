@@ -27,12 +27,17 @@
             <button onclick="myTime()">Time</button>
             <div><span id="hours">00</span>:<span id="minute">00</span>:<span id="second">00</span></div>
         </div>
+        <audio id="myAudio">
+            <source src="https://www.youtube.com/watch?v=5prASvZR_0U&list=RD5prASvZR_0U&start_radio=1" type="audio/ogg">
+            <source src="https://www.youtube.com/watch?v=5prASvZR_0U&list=RD5prASvZR_0U&start_radio=1" type="audio/mpeg">
+        </audio>
         <script>
             var inp1=document.querySelector("#input1")
             var minute1=document.querySelector("#minute")
             var second1 = document.querySelector("#second")
             var hours1 = document.querySelector("#hours")
             var running = true
+            var x = document.querySelector("#myAudio")
             // function myTime(){
             //     //if(running==true){
             //         if(inp1.value>=3600){
@@ -72,7 +77,7 @@
             //     }
                 
             // }
-
+            
             function secDown(){
                 second1.innerHTML--
                 if(second1.innerHTML==-1){
@@ -82,6 +87,10 @@
                         hours1.innerHTML--
                         minute1.innerHTML=59
                     }
+                }else if(second1.innerHTML<=0&&minute1.innerHTML<=0&&hours1.innerHTML<=0){
+                    clearInterval(myInterval)
+                    running=true
+                    x.play()
                 }
                 // if(second1.innerHTML==0&&hours1.innerHTML>0){
                 //     hours1.innerHTML--
@@ -97,7 +106,18 @@
                         minute1.innerHTML = Math.floor(inp1.value/60)%60
                         second1.innerHTML = (inp1.value%60)%60
                         inp1.value=""
-                        setInterval(secDown,1000)
+                        myInterval = setInterval(secDown,1000)
+                    }else if(inp1.value>=60){
+                        minute1.innerHTML = Math.floor(inp1.value/60)%60
+                        second1.innerHTML = (inp1.value%60)%60
+                        inp1.value=""
+                        myInterval = setInterval(secDown,1000)
+                    }else if(inp1.value>0){
+                        second1.innerHTML = (inp1.value%60)%60
+                        inp1.value=""
+                        myInterval = setInterval(secDown,1000)
+                    }else{
+                        alert("utgaa zuv oruul")
                     }
                     running=false
                 }
