@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Me</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+    <head>
+    <style>
+
+.slider {
+    width: 800px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.slides>div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 800px;
+    height: 500px;
+    margin-right: 50px;
+    border-radius: 10px;
+    background: #eee;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+
+img {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.atag{
+    color: blue;
+    text-decoration: none;
+}
+
+    </style>
+    <body>
+        <div class="header">
+            <ul>
+                <a href="index.html"><li class="col-lg-1">About me</li></a>
+                <a href="8.2.html"><li class="col-lg-1">Stopwatch</li></a>
+                <a href="addProduct.html"><li class="col-lg-1">TODO App</li></a>
+                <a href="changePic.html"><li class="col-lg-1">Change Picture</li></a>
+                <a href="changeColor.html"><li class="col-lg-1">Change Color</li></a>
+                <a href="timer.html"><li class="col-lg-1">Timer</li></a>
+                <a href="8.1.html"><li class="col-lg-1">Counter</li></a>
+                <a href="7.26.html"><li class="col-lg-1">ClassList</li></a>
+                <a href="lyrics.html"><li class="col-lg-1">Image Slider</li></a>
+                <a href="gif.html"><li class="col-lg-1">GIF searcher</li></a>
+                <a href="calculator.html"><li class="col-lg-1">Calculator</li></a>
+            </ul>
+        </div>
+        <div class="slider">
+            <div class="slides">
+                <div id="slide-1">
+                    <img id="slide1" src="images/BW.jpg" alt="">
+                </div>
+                <div id="slide-2">
+                    <img id="slide1" src="images/JL.jpg" alt="">
+                </div>
+                <div id="slide-3">
+                    <img id="slide1" src="images/OUaTiH.jpg" alt="">
+                </div>
+                <div id="slide-4">
+                    <img id="slide1" src="images/ww84.jpg" alt="">
+                </div>
+            </div>
+            <!-- <button onclick="prev()">prev</button>
+            <button onclick="next() ">next</button> -->
+            <div>
+                <a href="#slide-2" onclick="prev()" id="prev" class="atag">prev</a>
+                <a href="#slide-1" onclick="next()" id="next" class="atag">next</a>
+            </div>
+    
+        </div>
+        <script>
+            let q = 1
+
+            function next() {
+                if (q == 4) {
+                    q = q - q
+                }
+                q++
+                document.getElementById("next").href = "#slide-" + q
+
+            }
+
+            function prev() {
+                if (q == 1) {
+                    q = q + 4
+                }
+                q--
+                document.getElementById("prev").href = "#slide-" + q
+
+            }
+        </script>
+    </body>
+</html>
