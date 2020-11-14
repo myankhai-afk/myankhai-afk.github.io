@@ -57,6 +57,24 @@
                 padding: 2rem;
                 border: 1px solid black;
                 min-height: max-content;
+                margin-top: 1rem;
+                border-radius: 5px;
+                background-color:blanchedalmond;
+            }
+            #abmecontDiv{
+                border: 1px solid black;
+                width: 50%;
+                height: auto;
+                margin:25%;
+                margin-top: 5%;
+                border-radius: 5px;
+                background-color:blanchedalmond;
+            }
+            #abmecontDiv h2{
+                text-align: center;
+            }
+            #abmecontDiv p{
+                text-align: center;
             }
         </style>
     </head>
@@ -72,21 +90,27 @@
         <div id="projectDiv">
             <div class="table">
                 <ol>
-                    <a href="project/changePic.html"><li>Change Picture</li></a>
-                    <a href="project/changeColor.html"><li>Color changer</li></a>
-                    <a href="project/7.26.html"><li>ClassList</li></a>
-                    <a href="project/8.1.html"><li>Counter</li></a>
-                    <a href="project/addProduct.html"><li>TODO App</li></a>
-                    <a href="project/calculator.html"><li>Calculator</li></a>
-                    <a href="project/lyrics.html"><li>Slide show</li></a>
-                    <a href="project/timer.html"><li>Timer</li></a>
-                    <a href="project/8.2.html"><li>Stopwatch</li></a>
-                    <a href="project/gif.html"><li>GIF searcher</li></a>
+                    <a href="changePic.html"><li>Change Picture</li></a>
+                    <a href="changeColor.html"><li>Color changer</li></a>
+                    <a href="7.26.html"><li>ClassList</li></a>
+                    <a href="8.1.html"><li>Counter</li></a>
+                    <a href="addProduct.html"><li>TODO App</li></a>
+                    <a href="calculator.html"><li>Calculator</li></a>
+                    <a href="lyrics.html"><li>Slide show</li></a>
+                    <a href="timer.html"><li>Timer</li></a>
+                    <a href="8.2.html"><li>Stopwatch</li></a>
+                    <a href="gif.html"><li>GIF searcher</li></a>
                 </ol>
             </div>
         </div>
-        <div id="aboutmeDiv">ABOUT ME</div>
+        <div id="aboutmeDiv">
+            <div id="abmecontDiv">
+                <h2>Танилцуулга</h2>
+                <p>Намайг Мянхай гэдэг. Би Индга Институте-ийн SW202-302 ангид суралцдаг.</p>
 
+            </div>
+        </div>
+        
         <script>
             var homeDiv = document.querySelector("#homeDiv")
             var projectDiv = document.querySelector("#projectDiv")
@@ -105,6 +129,7 @@
                 homeDiv.style.display="none"
                 projectDiv.style.display="none"
                 aboutmeDiv.style.display="flex"
+                
             }
         </script>
     </body>
