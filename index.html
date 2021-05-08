@@ -1,136 +1,181 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>my web</title>
-        <meta charset="utf-8">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
-        <style>
-            body{
-                margin: 0;
-                font-family: 'Roboto', sans-serif;
-            }
-            nav{
-                display: flex;
-                justify-content: space-between;
-                background-color: rgb(247, 27, 27);
-                margin: 0;
-            }
-            .name{
-                font-family: Arial, Helvetica, sans-serif;
-                font-weight: bolder;
-                margin: 1rem 10%;
-                cursor: pointer;
-            }
-            .name:hover{
-                font-size: large;
-            }
-            .nav-links{
-                display: flex;
-                justify-content: space-between;
-            }
-            .nav-link{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                justify-content: center;
-                margin: 1rem;
-            }
-            a{
-                text-decoration: none;
-                color: black;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            .nav-link:hover{
-                color: white;
-                cursor: pointer;
-                font-size: large;
-            }
-            #projectDiv{
-                display: none;
-                justify-content: center;
-                align-items: center;
-            }
-            #aboutmeDiv{
-                display: none;
-            }
-            .table{
-                padding: 2rem;
-                border: 1px solid black;
-                min-height: max-content;
-                margin-top: 1rem;
-                border-radius: 5px;
-                background-color:blanchedalmond;
-            }
-            #abmecontDiv{
-                border: 1px solid black;
-                width: 50%;
-                height: auto;
-                margin:25%;
-                margin-top: 5%;
-                border-radius: 5px;
-                background-color:blanchedalmond;
-            }
-            #abmecontDiv h2{
-                text-align: center;
-            }
-            #abmecontDiv p{
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <nav>
-            <div class="name" onclick="home()">Myankhai</div>
-            <div class="nav-links">
-                <div class="nav-link" onclick="project()">PROJECT</div>
-                <div class="nav-link" onclick="aboutme()">ABOUT ME</div>
-            </div>
-        </nav>
-        <div id="homeDiv">HOME</div>
-        <div id="projectDiv">
-            <div class="table">
-                <ol>
-                    <a href="changePic.html"><li>Change Picture</li></a>
-                    <a href="changeColor.html"><li>Color changer</li></a>
-                    <a href="7.26.html"><li>ClassList</li></a>
-                    <a href="8.1.html"><li>Counter</li></a>
-                    <a href="addProduct.html"><li>TODO App</li></a>
-                    <a href="calculator.html"><li>Calculator</li></a>
-                    <a href="lyrics.html"><li>Slide show</li></a>
-                    <a href="timer.html"><li>Timer</li></a>
-                    <a href="8.2.html"><li>Stopwatch</li></a>
-                    <a href="gif.html"><li>GIF searcher</li></a>
-                </ol>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нүүр</title>
+    <style>
+        body{
+            margin:0;
+            background-color: rgb(255, 233, 233);
+        }
+        .header{
+            background-color:black;
+            width: auto;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 3rem;
+            text-align: center;
+        }
+        .header:hover{
+            background-color: white;
+            cursor: pointer;
+            color: black;
+        }
+        .a{
+            cursor: pointer;
+            width: 35%;
+            height: 10rem;
+            background-color: rgb(189, 189, 209);
+            margin-right: 10%;
+            margin-top: 3rem;
+            float: right;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        .a:hover{
+            background-color: cornflowerblue;
+        }
+        .footer{
+            background-color: khaki;
+            width: 100%;
+            height: 10%;
+        }
+        #cssDiv{
+            
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #cssContainer{
+            display: none;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 15rem;
+            background-color: rgb(189, 189, 209);
+            margin-right: 10%;
+            margin-top: 3rem;
+            float: right;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        #htmlDiv{
+           
+            
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #htmlContainer{
+            display: none;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 15rem;
+            background-color: rgb(189, 189, 209);
+            margin-right: 10%;
+            margin-top: 3rem;
+            float: right;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        a{
+            text-decoration: none;
+        }
+        .link:hover{
+            font-size: 5rem;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="header">Мэдээлэл зүйн гэрийн даалгавар</div>
+    <div class="body">
+        <a href="schedule.html"><div class="a">Хичээлийн хуваарь</div></a>
+        <a href="tomyo.html"><div class="a">Томьёо</div></a>
+        <div class="a" id="CSS1" onclick="myDiv1()">CSS explanation</div>
+        <div class="a" id="HTML1" onclick="myDiv2()">HTML explanation</div>
+        <div id="cssContainer">
+            <div id="cssDiv">
+                <b><p>
+                    style tag -> tag дотроо css буюу загварыг бичдэг<br>
+                    color -> text color<br>
+                    text:align -> text ийн башршил<br>
+                    background-color -> дэвсгэр өнгө<br>
+                    font-family -> text ийн загвар өөрчилнө<br>
+                    margin -> хооронлын зайг авна<br>
+                    <span class="link">Илүү ихийг <a href="https://www.w3schools.com/css/default.asp">эндээс</a></span>
+                </p></b>
             </div>
         </div>
-        <div id="aboutmeDiv">
-            <div id="abmecontDiv">
-                <h2>Танилцуулга</h2>
-                <p>Намайг Мянхай гэдэг. Би Индга Институте-ийн SW202-302 ангид суралцдаг.</p>
+        <div id="htmlContainer">
+            <div id="htmlDiv">
+                <b><p>
+                    !DOCTYPE html -> html5 хувилбар<br>
+                    head tag -> толгой хэсэг<br>
+                    body tag -> эх бие хэсэг (гол кодоо энд бичнэ)<br>
+                    UTF-8 -> латинаас өөр үсгийг танина<br>
+                    h1 tag -> хамгийн том гарчиг (h6 хүртэл хэмжээ нь багасна)<br>
+                    p tag -> текст бичнэ<br>
+                    div tag -> website аа хувааж table tag ийн илүү хувилбар<br>
+                    <span class="link">Илүү ихийг <a href="https://www.w3schools.com/html/default.asp">эндээс</a></span>
+                </p></b>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+    <script>
+        var divHTML = document.querySelector("#HTML1")
+        var divCSS = document.querySelector("#CSS1")
+        var divCont = document.querySelector("#cssContainer")
+        var divHtmlCon = document.querySelector("#htmlContainer")
+        var cssCount = 0
+        var htmlCount = 0
+        function myDiv1(){
+            cssCount++
+            if(cssCount%2==0){
+                divCont.style.display="none"
+            }else{
+                divCont.style.display="flex"
+            }
+        }
 
-            </div>
-        </div>
-        
-        <script>
-            var homeDiv = document.querySelector("#homeDiv")
-            var projectDiv = document.querySelector("#projectDiv")
-            var aboutmeDiv = document.querySelector("#aboutmeDiv")
-            function home(){
-                homeDiv.style.display="flex"
-                projectDiv.style.display="none"
-                aboutmeDiv.style.display="none"
+        function myDiv2(){
+            htmlCount++
+            if(htmlCount%2==0){
+                divHtmlCon.style.display="none"
+            }else{
+                divHtmlCon.style.display="flex"
             }
-            function project(){
-                homeDiv.style.display="none"
-                projectDiv.style.display="flex"
-                aboutmeDiv.style.display="none"
-            }
-            function aboutme(){
-                homeDiv.style.display="none"
-                projectDiv.style.display="none"
-                aboutmeDiv.style.display="flex"
-                
-            }
-        </script>
-    </body>
+        }
+    </script>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyADr5ONmcgNil5DaB93V-3zHl1qOG9PYpU",
+    authDomain: "infotech-cb1ec.firebaseapp.com",
+    projectId: "infotech-cb1ec",
+    storageBucket: "infotech-cb1ec.appspot.com",
+    messagingSenderId: "735501954627",
+    appId: "1:735501954627:web:7aa4154d0ac38461e0eef6",
+    measurementId: "G-RWH7HHM2F3"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 </html>
